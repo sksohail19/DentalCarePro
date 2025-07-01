@@ -1,5 +1,3 @@
-
-
 // Default data
 const defaultUsers = [
   {

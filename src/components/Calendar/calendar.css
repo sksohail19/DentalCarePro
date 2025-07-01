@@ -1,0 +1,35 @@
+.calendar-container { display: flex; flex-direction: column; gap: 24px; }
+.calendar-title { font-size: 28px; font-weight: bold; }
+.calendar-controls { display: flex; gap: 16px; align-items: center; }
+.view-toggle { display: flex; }
+.toggle-btn { padding: 8px 16px; border: 1px solid #ccc; background: white; cursor: pointer; }
+.toggle-btn.active { background: #2563eb; color: white; border-color: #2563eb; }
+.new-appt-btn { background: #2563eb; color: white; padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+.calendar-card { background: white; border: 1px solid #eee; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+.calendar-nav { display: flex; justify-content: space-between; align-items: center; padding: 16px; border-bottom: 1px solid #eee; }
+.nav-left { display: flex; align-items: center; gap: 8px; }
+.today-btn { color: #2563eb; background: transparent; border: none; cursor: pointer; }
+.calendar-body { padding: 16px; }
+.month-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 1px; background: #ddd; border-radius: 8px; overflow: hidden; }
+.day-header { background: #f9f9f9; padding: 8px; text-align: center; font-weight: 600; }
+.day-cell { background: white; padding: 8px; min-height: 100px; cursor: pointer; }
+.day-cell.empty { background: #f0f0f0; }
+.outside-month { color: #bbb; }
+.day-number { font-weight: 600; margin-bottom: 4px; }
+.day-number.today { background: #2563eb; color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+.events-list { display: flex; flex-direction: column; gap: 2px; }
+.event-item { font-size: 12px; padding: 2px 4px; border-radius: 4px; color: white; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.more-events { font-size: 12px; color: #888; }
+.week-view { display: flex; flex-direction: column; gap: 8px; }
+.week-header, .week-grid { display: grid; grid-template-columns: 80px repeat(7, 1fr); gap: 4px; }
+.week-day, .time-slot, .time-column { text-align: center; font-weight: 500; }
+.week-date.today { background: #2563eb; color: white; border-radius: 50%; width: 28px; height: 28px; margin: 0 auto; display: flex; align-items: center; justify-content: center; }
+.day-column { position: relative; border-left: 1px solid #eee; min-height: 600px; }
+.event-block { position: absolute; left: 4px; right: 4px; padding: 4px; font-size: 12px; color: white; border-radius: 4px; cursor: pointer; }
+.status-scheduled { background: #3b82f6; }
+.status-inprogress { background: #f59e0b; }
+.status-completed { background: #22c55e; }
+.status-cancelled { background: #ef4444; }
+.status-pending { background: #f97316; }
+.status-unknown { background: #6b7280; }
+.icon { width: 16px; height: 16px; }

@@ -6,6 +6,8 @@ import Header from './components/Layout/Header';
 import AdminDashboard from './components/Dashboard/AdminDashboard';
 import PatientDashboard from './components/Dashboard/PatientDashboard';
 import PatientList from './components/Patients/PatientList';
+import AppointmentList from './components/Appointments/AppointmentList';
+import CalendarView from './components/Calendar/CalendarView';
 
 const ProtectedRoute = ({ children }) => {
   const { isAuthenticated } = useAuth();
@@ -25,9 +27,9 @@ const AppContent = () => {
   }
 
   return (
-    <div className="bg-light min-vh-100 d-flex flex-column">
+    <div className="min-vh-100 bg-light">
       <Header />
-      <main className="container py-4 flex-grow-1">
+      <main className="container py-4">
         <Routes>
           <Route 
             path="/" 
@@ -52,10 +54,7 @@ const AppContent = () => {
             element={
               <ProtectedRoute>
                 <AdminRoute>
-                  <div className="text-center py-5">
-                    <h2 className="h4 fw-bold text-dark mb-3">Appointments</h2>
-                    <p className="text-muted">Appointment management coming soon...</p>
-                  </div>
+                  <AppointmentList />
                 </AdminRoute>
               </ProtectedRoute>
             } 
@@ -65,10 +64,7 @@ const AppContent = () => {
             element={
               <ProtectedRoute>
                 <AdminRoute>
-                  <div className="text-center py-5">
-                    <h2 className="h4 fw-bold text-dark mb-3">Calendar</h2>
-                    <p className="text-muted">Calendar view coming soon...</p>
-                  </div>
+                  <CalendarView />
                 </AdminRoute>
               </ProtectedRoute>
             } 

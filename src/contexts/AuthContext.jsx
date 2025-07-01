@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { getUsers, getCurrentUser, setCurrentUser, initializeStorage } from "../utils/storage";
+import { getUsers, getCurrentUser, setCurrentUser, initializeStorage } from '../utils/storage';
 
 const AuthContext = createContext(undefined);
 
@@ -29,7 +29,6 @@ export const AuthProvider = ({ children }) => {
       setCurrentUser(foundUser);
       return true;
     }
-
     return false;
   };
 
@@ -43,7 +42,7 @@ export const AuthProvider = ({ children }) => {
     login,
     logout,
     isAuthenticated: user !== null,
-    isAdmin: user?.role === 'admin',
+    isAdmin: user?.role === 'admin'
   };
 
   return (
