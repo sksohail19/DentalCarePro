@@ -1,70 +1,119 @@
-# Getting Started with Create React App
+# DentalCare Pro
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+DentalCare Pro is a comprehensive dental practice management application built with React. It provides a seamless interface for both clinic administrators (dentists) and patients. The application features role-based access control, allowing admins to manage patient records, and appointments, and view practice-wide statistics, while patients can view their appointment history, personal details, and request new appointments. All data is managed locally using the browser's `localStorage` for a complete front-end experience.
 
-In the project directory, you can run:
+## Key Features
 
-### `npm start`
+*   **Dual Dashboards:** Separate, feature-rich dashboards for Admins (Dentists) and Patients.
+*   **Role-Based Authentication:** Secure login system differentiating between admin and patient users. Use the demo accounts on the login page to explore.
+*   **Admin Dashboard:** At-a-glance view of total patients, appointments, monthly revenue, and completion rates. Includes quick access to upcoming appointments and recently added patients.
+*   **Patient Management (Admin):** Full CRUD (Create, Read, Update, Delete) functionality for patient records including personal, contact, and medical information.
+*   **Appointment Management (Admin):** A comprehensive system to schedule, view details, update status, and delete appointments. Includes forms for adding treatment details, costs, and file attachments.
+*   **Interactive Calendar (Admin):** A visual calendar with month and week views to manage the clinic's appointment schedule effectively.
+*   **Patient Portal:** Patients can view their personal information, upcoming appointments, and a complete history of past treatments and payments.
+*   **Appointment Requests:** Patients can easily request new appointments from their dashboard, which will appear as "Pending Approval" for the admin.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Tech Stack
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+*   **Frontend:** React.js
+*   **Routing:** React Router
+*   **Styling:** Bootstrap & Custom CSS
+*   **Icons:** Lucide React
+*   **State Management:** React Context API
+*   **Data Persistence:** Browser `localStorage` is used to simulate a database.
 
-### `npm test`
+## Directory Structure
+    ├── README.md
+    ├── package.json
+    ├── public
+    │   ├── index.html
+    │   ├── manifest.json
+    │   └── robots.txt
+    └── src
+        ├── App.css
+        ├── App.js
+        ├── App.test.js
+        ├── components
+        │   ├── Appointments
+        │   │   ├── AppointmentForm.jsx
+        │   │   └── AppointmentList.jsx
+        │   ├── Auth
+        │   │   └── Login.jsx
+        │   ├── Calendar
+        │   │   ├── CalendarView.jsx
+        │   │   └── calendar.css
+        │   ├── Dashboard
+        │   │   ├── AdminDashboard.jsx
+        │   │   └── PatientDashboard.jsx
+        │   ├── Layout
+        │   │   └── Header.js
+        │   └── Patients
+        │       ├── PatientForm.js
+        │       └── PatientList.js
+        ├── contexts
+        │   └── AuthContext.jsx
+        ├── index.css
+        ├── index.js
+        ├── reportWebVitals.js
+        ├── setupTests.js
+        ├── types
+        │   └── index.js
+        └── utils
+            └── storage.js
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting Started
 
-### `npm run build`
+Follow these instructions to get a copy of the project up and running on your local machine for development and testing purposes.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Prerequisites
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+You need to have Node.js and npm (or yarn) installed on your machine.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Installation
 
-### `npm run eject`
+1.  **Clone the repository:**
+    ```sh
+    git clone https://github.com/sksohail19/dentalcarepro.git
+    ```
+2.  **Navigate to the project directory:**
+    ```sh
+    cd dentalcarepro
+    ```
+3.  **Install dependencies:**
+    ```sh
+    npm install
+    ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Running the Application
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To run the application in development mode:
+```sh
+npm start
+```
+This will start the development server and open the application in your default browser at `http://localhost:3000`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Usage & Demo Accounts
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The application is pre-populated with demo data for both an admin and a patient. Use the demo buttons on the login screen or enter the following credentials manually:
 
-## Learn More
+#### Admin Access
+*   **Email:** `admin@dentalcenter.com`
+*   **Password:** `admin123`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Patient Access
+*   **Email:** `patient@example.com`
+*   **Password:** `patient123`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Summary
+Repository: DentalCarePro
+Analysis ID: sksohail19-DentalCarePro
 
-### Code Splitting
+📊 Analysis Summary:
+* Total files: 25
+* Files analyzed: 15
+* Total size: 98.7 KB
+* Functions found: 71
+* Function calls: 310
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
