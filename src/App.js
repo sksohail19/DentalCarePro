@@ -8,6 +8,7 @@ import PatientDashboard from './components/Dashboard/PatientDashboard';
 import PatientList from './components/Patients/PatientList';
 import AppointmentList from './components/Appointments/AppointmentList';
 import CalendarView from './components/Calendar/CalendarView';
+import Registration from './components/Auth/Registration';
 
 const ProtectedRoute = ({ children }) => {
   const { isAuthenticated } = useAuth();
@@ -22,54 +23,61 @@ const AdminRoute = ({ children }) => {
 const AppContent = () => {
   const { isAuthenticated, isAdmin } = useAuth();
 
-  if (!isAuthenticated) {
-    return <Login />;
-  }
-
   return (
     <div className="min-vh-100 bg-light">
-      <Header />
+      {/* Show header only when authenticated */}
+      {isAuthenticated && <Header />}
       <main className="container py-4">
         <Routes>
-          <Route 
-            path="/" 
+          {/* Public routes */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Registration />} />
+
+          {/* Protected routes */}
+          <Route
+            path="/"
             element={
               <ProtectedRoute>
                 {isAdmin ? <AdminDashboard /> : <PatientDashboard />}
               </ProtectedRoute>
-            } 
+            }
           />
-          <Route 
-            path="/patients" 
+          <Route
+            path="/patients"
             element={
               <ProtectedRoute>
                 <AdminRoute>
                   <PatientList />
                 </AdminRoute>
               </ProtectedRoute>
-            } 
+            }
           />
-          <Route 
-            path="/appointments" 
+          <Route
+            path="/appointments"
             element={
               <ProtectedRoute>
                 <AdminRoute>
                   <AppointmentList />
                 </AdminRoute>
               </ProtectedRoute>
-            } 
+            }
           />
-          <Route 
-            path="/calendar" 
+          <Route
+            path="/calendar"
             element={
               <ProtectedRoute>
                 <AdminRoute>
                   <CalendarView />
                 </AdminRoute>
               </ProtectedRoute>
-            } 
+            }
           />
-          <Route path="*" element={<Navigate to="/" />} />
+
+          {/* Catch-all: redirect unknown routes */}
+          <Route
+            path="*"
+            element={<Navigate to={isAuthenticated ? "/" : "/login"} />}
+          />
         </Routes>
       </main>
     </div>

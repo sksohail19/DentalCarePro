@@ -1,28 +1,36 @@
 import React, { useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { Eye, EyeOff, User, Lock } from 'lucide-react';
+import { useNavigate, Link } from "react-router-dom";
+
+
 
 const Login = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const { login } = useAuth();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setError('');
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+  setError('');
 
-    if (!email || !password) {
-      setError('Please enter both email and password');
-      return;
-    }
+  if (!email || !password) {
+    setError('Please enter both email and password');
+    return;
+  }
 
-    const success = login(email, password);
-    if (!success) {
-      setError('Invalid email or password');
-    }
-  };
+  const success = login(email, password);
+
+  if (success) {
+    navigate('/');   // 👈 redirect to dashboard/home page
+  } else {
+    setError('Invalid email or password');
+  }
+};
+
 
   const handleDemoLogin = (role) => {
     if (role === 'admin') {
@@ -89,6 +97,7 @@ const Login = () => {
               <button type="submit" className="btn btn-primary w-100">
                 Sign In
               </button>
+              
             </form>
 
             <div className="my-4 text-center">
@@ -114,6 +123,12 @@ const Login = () => {
               >
                 Patient Demo
               </button>
+            </div>
+
+            <div className="d-grid gap-2 mt-3">
+              <Link to="/signup" className="btn btn-success">
+                Sign Up
+              </Link>
             </div>
           </div>
         </div>
