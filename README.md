@@ -110,10 +110,10 @@ Repository: DentalCarePro
 Analysis ID: sksohail19-DentalCarePro
 
 📊 Analysis Summary:
-• Total files: 25
-• Files analyzed: 15
-• Total size: 98.7 KB
-• Functions found: 71
-• Function calls: 310
+* Total files: 25
+* Files analyzed: 15
+* Total size: 98.7 KB
+* Functions found: 71
+* Function calls: 310
 
 
